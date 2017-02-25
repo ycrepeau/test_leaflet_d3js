@@ -1,0 +1,15 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "jquery": "latest",
+    "jquery-ujs": "latest",
+    "font-awesome": "latest",
+    "jquery-tokeninput": "latest",
+    "foundation-sites": "latest",
+    "leaflet": "latest",
+    "leaflet-providers": "latest",
+    "leaflet-ajax": "latest",
+    "d3": "latest",
+    "topojson": "latest"
+  }
+}

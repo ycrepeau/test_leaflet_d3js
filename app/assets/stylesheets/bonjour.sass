@@ -1,0 +1,97 @@
+@import "foundation_and_overrides"
+
+$colors: (#f32f2f, #ff7022, #fdff37, #4bd34b, #0ac5b6, #5460c1, #a937d4, #f30a93)
+
+h3
+  color: $primary-color
+
+.page
+  @include flex-grid-row()
+  @include flex-align(center, middle)
+
+  .gauche
+    @include flex-grid-column("expand")
+
+  .droite
+    text-align:right
+    @include breakpoint(small)
+      @include flex-grid-column(12)
+      background-color: black
+      color: white
+
+    @include breakpoint(medium)
+      @include flex-grid-column(5)
+      background-color: white
+      color: black
+      .fa
+        color: $alert-color
+
+    @include breakpoint(large)
+      @include flex-grid-column(2)
+      background-color: white
+      color: black
+      .fa
+        color: $warning-color
+
+    @include breakpoint(xlarge)
+      @include flex-grid-column(1)
+      background-color: white
+      color: black
+      .fa
+        color: $success-color
+
+#map
+  width: 100%
+  border: thin solid black
+  margin-right: 2rem
+
+  @include breakpoint(small)
+    height: 250px
+  @include breakpoint(medium)
+    height: 500px
+  @include breakpoint(large)
+    height: 750px
+  @include breakpoint(xlarge)
+    height: 960px
+
+
+.map-wrap
+  padding: 2rem
+
+.state
+  fill: rgba(blue, 0.5)
+  stroke: white
+  stroke-dasharray: 2,1
+  stroke-width: 1.2px
+  stroke-linejoin: round
+
+  &.sCA-QC
+    fill: rgba(nth($colors,1), 0.7)
+  &.sCA-ON
+    fill: rgba(nth($colors,2), 0.7)
+  &.sCA-NB
+    fill: rgba(nth($colors,3), 0.7)
+  &.sCA-PE
+    fill: rgba(nth($colors,4), 0.7)
+  &.sCA-NS
+    fill: rgba(nth($colors,5), 0.7)
+  &.sUS-NY
+    fill: rgba(nth($colors,5), 0.7)
+  &.sUS-VT
+    fill: rgba(nth($colors,7), 0.7)
+  &.sUS-NH
+    fill: rgba(nth($colors,8), 0.7)
+  &.sUS-ME
+    fill: rgba(nth($colors,2), 0.7)
+  &.sUS-PA
+    fill: rgba(nth($colors,3), 0.7)
+  &.sUS-OH
+    fill: rgba(nth($colors,4), 0.7)
+  &.sUS-MI
+    fill: rgba(nth($colors,5), 0.7)
+  &.sUS-MA
+    fill: rgba(nth($colors,1), 0.7)
+  &.sUS-CT
+    fill: rgba(nth($colors,2), 0.7)
+  &.sUS-RI
+    fill: rgba(nth($colors,3), 0.7)
