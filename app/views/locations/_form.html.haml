@@ -1,0 +1,12 @@
+.scaffolds
+  = simple_form_for(@location, validate: true) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :name
+      = f.input :address
+      = f.input :latitude
+      = f.input :longitude
+
+    .form-actions
+      = f.button :submit

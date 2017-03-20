@@ -1,0 +1,14 @@
+{
+  "name": "d3-dsv",
+  "homepage": "https://github.com/d3/d3-dsv",
+  "version": "1.0.5",
+  "_release": "1.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.5",
+    "commit": "824090775484113e3ee86523cb37301dbacc6c89"
+  },
+  "_source": "https://github.com/d3/d3-dsv.git",
+  "_target": "*",
+  "_originalSource": "d3-dsv"
+}

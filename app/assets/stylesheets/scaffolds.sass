@@ -1,0 +1,40 @@
+@import 'foundation_and_overrides'
+
+.scaffolds
+  @include flex-grid-row
+  @include flex-align(left, middle)
+  margin:  5px 10px
+  padding: 0  5px
+
+  th
+    background-color: $primary-color
+    color: $white
+
+  tbody
+    a
+      @extend .small
+      @extend .expanded
+
+  h1
+    color: $black
+
+    font
+      size: 12pt
+
+  a
+    @extend .button
+
+.row
+  #t1
+    & > .columns
+      margin: 5px 0
+
+.show
+  border: thin solid $black
+  border-radius: 15px
+  margin: 5px 10px
+  padding: 0 5px
+
+
+  a
+    @extend .button

@@ -1,0 +1,31 @@
+.show
+  %p#notice= notice
+
+  .row
+    .columns.small-4
+      %b Name:
+    .columns
+      = @location.name
+
+  .row
+    .columns.small-4
+      %b Address:
+    .columns
+      = @location.address
+
+  .row
+    .columns.small-4
+      %b Latitude:
+    .columns
+      = @location.latitude
+
+  .row
+    .columns.small-4
+      %b Longitude:
+    .columns
+      = @location.longitude
+
+  .row.align-right
+    .columns.shrink
+      = link_to 'Edit', edit_location_path(@location)
+      = link_to 'Back', locations_path
