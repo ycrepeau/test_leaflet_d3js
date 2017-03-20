@@ -6,10 +6,15 @@
     "font-awesome": "latest",
     "jquery-tokeninput": "latest",
     "foundation-sites": "latest",
-    "leaflet": "latest",
+    "leaflet": "1.0.3",
     "leaflet-providers": "latest",
     "leaflet-ajax": "latest",
     "d3": "latest",
+    "d3-queue": "latest",
+    "d3-dsv": "latest",
     "topojson": "latest"
+  },
+  "resolutions": {
+    "leaflet": "1.0.3"
   }
 }

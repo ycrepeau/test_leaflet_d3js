@@ -1,4 +1,27 @@
-@import "foundation_and_overrides"
+// sass-lint:disable no-color-keywords no-color-literals variable-name-format
+@import 'foundation_and_overrides'
+
+
+.react-component
+
+  @extend .row
+  @extend .medium-up-2
+  @extend .small-collapse
+  @extend .medium-uncollapse
+
+  border: thin solid $black
+  margin: 5px
+  padding: 5px
+
+  & .card
+    @extend .columns
+
+    & .card-divider
+      margin: 0 -15px
+
+
+
+
 
 $colors: (#f32f2f, #ff7022, #fdff37, #4bd34b, #0ac5b6, #5460c1, #a937d4, #f30a93)
 
@@ -6,44 +29,46 @@ h3
   color: $primary-color
 
 .page
-  @include flex-grid-row()
+  @include flex-grid-row
   @include flex-align(center, middle)
 
   .gauche
-    @include flex-grid-column("expand")
+    @include flex-grid-column('expand')
 
   .droite
-    text-align:right
     @include breakpoint(small)
       @include flex-grid-column(12)
-      background-color: black
-      color: white
+      background-color: #160d3e
+      color: $white
 
     @include breakpoint(medium)
       @include flex-grid-column(5)
-      background-color: white
-      color: black
+      background-color: $white
+      color: #066b8a
+
       .fa
         color: $alert-color
 
     @include breakpoint(large)
       @include flex-grid-column(2)
       background-color: white
-      color: black
+      color: #092539
+
       .fa
         color: $warning-color
 
     @include breakpoint(xlarge)
       @include flex-grid-column(1)
-      background-color: white
-      color: black
+      background-color: #442b09
+      color: white
+
       .fa
         color: $success-color
 
 #map
-  width: 100%
   border: thin solid black
   margin-right: 2rem
+  width: 100%
 
   @include breakpoint(small)
     height: 250px
@@ -56,42 +81,119 @@ h3
 
 
 .map-wrap
+  @include flex-grid-column(12)
   padding: 2rem
 
 .state
-  fill: rgba(blue, 0.5)
+  fill: none
   stroke: white
-  stroke-dasharray: 2,1
-  stroke-width: 1.2px
+  //stroke-dasharray: 2,1
   stroke-linejoin: round
+  stroke-width: 3px
 
   &.sCA-QC
-    fill: rgba(nth($colors,1), 0.7)
-  &.sCA-ON
-    fill: rgba(nth($colors,2), 0.7)
-  &.sCA-NB
-    fill: rgba(nth($colors,3), 0.7)
-  &.sCA-PE
-    fill: rgba(nth($colors,4), 0.7)
-  &.sCA-NS
-    fill: rgba(nth($colors,5), 0.7)
-  &.sUS-NY
-    fill: rgba(nth($colors,5), 0.7)
-  &.sUS-VT
-    fill: rgba(nth($colors,7), 0.7)
-  &.sUS-NH
-    fill: rgba(nth($colors,8), 0.7)
-  &.sUS-ME
-    fill: rgba(nth($colors,2), 0.7)
-  &.sUS-PA
-    fill: rgba(nth($colors,3), 0.7)
-  &.sUS-OH
-    fill: rgba(nth($colors,4), 0.7)
-  &.sUS-MI
-    fill: rgba(nth($colors,5), 0.7)
-  &.sUS-MA
-    fill: rgba(nth($colors,1), 0.7)
-  &.sUS-CT
-    fill: rgba(nth($colors,2), 0.7)
-  &.sUS-RI
-    fill: rgba(nth($colors,3), 0.7)
+    stroke: none
+
+//Couleurs associées à chaque parti
+$qs: rgba(255, 127, 80, 1)
+$caq: rgba(132, 112, 255, 1)
+$plq: rgba(255, 0, 0, 1)
+$pq: rgba(0, 0, 128, 1)
+$on: rgba(8, 8, 255, 1)
+$vert: rgba(0, 128, 0, 1)
+
+//Transparenes (circonscriptions et sections)
+$trans: 0.3
+$pin_trans: 0.9
+$sec_trans: 0.5
+
+//Couleurs de pour les circonscriptions
+.limite_circonscriptions
+  fill: none
+  stroke: white
+  stroke-linejoin: round
+
+  //Same party both sides of the limits
+  &.memeParti
+    stroke-dasharray: 3, 2
+    stroke-width: 1px
+
+
+  //Different political parties 
+  &.partisDifferent
+    stroke-dasharray: none
+    stroke-width: 2px
+
+.district
+  fill: rgba(192, 192, 192, 0.5)
+  stroke: white
+  stroke-linejoin: round
+  stroke-width: 3px
+  //stroke-dasharray: 3,2
+
+
+  //On colore selon le parti gagnant
+  &.pq
+    fill: rgba($pq, $trans)
+
+
+  &.plq
+    fill: rgba($plq, $trans)
+
+
+  &.caq
+    fill: rgba($caq, $trans)
+
+
+  &.qs
+    fill: rgba($qs, $trans)
+
+  &.d381
+    fill: none
+
+
+  &.on
+    fill: rgba($on, $trans)
+
+
+  &.vert
+    fill: rgba($vert, $trans)
+
+.section
+  fill: rgba(192, 192, 192, 0.5)
+  stroke: white
+  stroke-dasharray: 3, 2
+  stroke-linejoin: round
+  stroke-width: 1px
+
+  //On colore selon le parti gagnant
+  &.pq
+    fill: $pq
+
+  &.plq
+    fill: $plq
+
+  &.caq
+    fill: $caq
+
+  &.qs
+    fill: $qs
+
+  &.d381
+    fill: none
+
+
+  &.on
+    fill: $on
+
+  &.vert
+    fill: $vert
+
+  &.faible
+    fill-opacity: 0.3
+
+  &.moyen
+    fill-opacity: 0.6
+
+  &.fort
+    fill-opacity: 0.9

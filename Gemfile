@@ -68,3 +68,19 @@ gem "bower-rails"
 # rake bower:install
 # rake bower:update
 # rake bower:update:prune
+
+gem 'i18n-language-translations'
+gem 'i18n-country-translations'
+gem 'simple_form', '3.4.0'
+gem 'client_side_validations'
+#git: 'git://github.com/DavyJonesLocker/client_side_validations',
+#branch: 'rails5'
+
+gem 'client_side_validations-simple_form'
+#git: 'git://github.com/DavyJonesLocker/client_side_validations-simple_form',
+#branch: 'rails5'
+
+gem "letter_opener", :group => :development
+
+gem 'react-rails'
+gem "browserify-rails"

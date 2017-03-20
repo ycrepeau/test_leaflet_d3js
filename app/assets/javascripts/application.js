@@ -7,7 +7,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file. JavaScript code in this file should be added after the last require_* statement.
 //
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// Read Sprockets REA DME (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
 //= require jquery/dist/jquery
@@ -17,14 +17,26 @@
 //= require leaflet/dist/leaflet
 //= require leaflet-providers/leaflet-providers
 //= require jquery-tokeninput/src/jquery.tokeninput
-//= norequire rails.validations
-//= norequire rails.validations.simple_form
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require foundation-sites/dist/js/foundation
 //= require d3/d3
+//= require d3-queue/d3-queue
+//= require d3-dsv
 //= require topojson/topojson
 
+//  xxrequire react
+//= require react_ujs
+// xxrequire components
 
-$(function(){
-  $(document).foundation();
+var React = window.React = global.React = require('react');
+var ReactDOM= window.ReactDOM = global.ReactDOM = require('react-dom');
+//window.$ = window.jQuery = require('jquery')
+//require('jquery-ujs')
+
+
+
+jQuery(function(){
+  jQuery(document).foundation();
 
 });

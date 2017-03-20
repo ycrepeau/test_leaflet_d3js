@@ -6,3 +6,4 @@
 # )
 
 #Rails.application.config.sass.preferred_syntax = :sass
+Rails.application.config.browserify_rails.commandline_options = "-t coffeeify --extension=\".js.coffee\""
