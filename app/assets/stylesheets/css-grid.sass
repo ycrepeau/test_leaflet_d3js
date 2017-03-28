@@ -1,0 +1,49 @@
+$background-color: #eee
+$color: #444
+$header-color: #999
+
+.row
+  margin-top: 2em
+  width: 100%
+
+.card
+  width: 100%
+
+body
+  margin: 40px
+
+.box
+  background-color: $background-color
+  border-radius: 5px
+  color: $color
+  font-size: 150%
+  padding: 20px
+
+.sidebar
+  grid-area: sidebar
+
+
+.content
+  grid-area: content
+
+
+.header
+  background-color: $header-color
+  grid-area: header
+
+
+
+.wrapper
+  //background-color: $background-color
+  color: $color
+
+
+  display: grid
+  grid-gap: 10px
+  grid-template-areas: '....... header header header header' 'sidebar content content content content'
+
+  grid-template-columns: repeat(5, 1fr)
+
+  margin: 0 auto
+  width: 100%
+
