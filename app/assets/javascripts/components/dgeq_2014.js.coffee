@@ -490,11 +490,11 @@ class SainteMarieSaintJacques extends MapBase
 class HoMa extends MapBase
   @defaultProps = {
     codeCirconscription: 387,
-    initialPoint: [45.555, -73.55],
+    initialPoint: [45.555, -73.52],
     minZoom: 13,
     maxZoom: 16,
     maxBounds: [[45.4,-74], [45.7, -73.4]],
-    initialZoom: 14,
+    initialZoom: 13,
     candidats: [
       {
         clef: "Canning Justin P.N."
@@ -539,11 +539,11 @@ class HoMa extends MapBase
 class Rosemont extends MapBase
   @defaultProps = {
     codeCirconscription: 379
-    initialPoint: [45.555, -73.6],
+    initialPoint: [45.555, -73.55],
     minZoom: 13,
     maxZoom: 16,
     maxBounds: [[45.4,-74], [45.7, -73.4]],
-    initialZoom: 14,
+    initialZoom: 13,
     candidats: [
       {
         clef: "Babin Matthew B.P."

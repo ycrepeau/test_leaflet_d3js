@@ -11,38 +11,47 @@ h3
   @include flex-grid-row
   @include flex-align(center, middle)
 
+  @include breakpoint(small)
+    background-color: #160d3e
+    color: $white
+
+  @include breakpoint(medium)
+    background-color: $white
+    color: #066b8a
+
+    .fa
+      color: $alert-color
+
+  @include breakpoint(large)
+    background-color: white
+    color: #092539
+
+    .fa
+      color: $warning-color
+
+  @include breakpoint(xlarge)
+    background-color: #442b09
+    color: white
+
+    .fa
+      color: $success-color
+
+
   .gauche
     @include flex-grid-column('expand')
 
   .droite
     @include breakpoint(small)
       @include flex-grid-column(12)
-      background-color: #160d3e
-      color: $white
 
     @include breakpoint(medium)
-      @include flex-grid-column(5)
-      background-color: $white
-      color: #066b8a
-
-      .fa
-        color: $alert-color
+      @include flex-grid-column(6)
 
     @include breakpoint(large)
-      @include flex-grid-column(2)
-      background-color: white
-      color: #092539
-
-      .fa
-        color: $warning-color
+      @include flex-grid-column(4)
 
     @include breakpoint(xlarge)
-      @include flex-grid-column(1)
-      background-color: #442b09
-      color: white
-
-      .fa
-        color: $success-color
+      @include flex-grid-column(2)
 
 #map,
 .aMap
@@ -52,20 +61,20 @@ h3
 
   @include breakpoint(small)
     height: 250px
-    width:  375px
+    //width:  375px
   @include breakpoint(medium)
     height: 500px
-    width:  750px
+    //width:  750px
   @include breakpoint(large)
-    height: 750px
-    width:  960px
+    height: 500px
+    //width:  960px
   @include breakpoint(xlarge)
-    height: 960px
-    width: 1200px
+    height: 500px
+    //width: 1200px
 
 .nom
-  fill       : #ffffff
-  stroke     : #000000
+  fill:   #fff
+  stroke: #000
 
 .map-wrap
   @include flex-grid-column(12)

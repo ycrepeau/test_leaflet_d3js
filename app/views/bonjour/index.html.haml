@@ -1,14 +1,14 @@
 .page
   .gauche
-    %h3 Page test
+    %h3 Élections Québecoise
   .droite
     %p.text-right
-      Hello folks!
+      Cartes des résultats
       %i.fa.fa-map-o
 
 
 .row
-  .row
+  .columns.small-12
     %h5 Québec — Élections générales du 7 avril 2014
     %p Résultats par sections de vote dans quelques circonscriptions de Montréal
     %blockquote
@@ -25,17 +25,19 @@
     %h5 Code source
     %p Le code source de ce projet est disponible sur le site de GitHub.
     %p= link_to 'https://github.com/ycrepeau/test_leaflet_d3js', 'https://github.com/ycrepeau/test_leaflet_d3js'
-  .row
+
+    %h5 Note
+    %p Fichiers Hénaurme!!! ;-) en cours de transfert. Compter 60 secondes par carte pour compléter l'affichage
+
+.row
+  .columns.small-10
     =react_component('app.Rosemont', titre: 'Rosemont')
-  .row
     =react_component('app.HoMa', titre: 'Hochelaga-Maisonneuve')
-  .row
     =react_component('app.SainteMarieSaintJacques', titre: 'Sainte-Marie – Saint-Jacques')
-  .row
     =react_component('app.Mercier', titre: 'Mercier')
-  .row
     =react_component('app.LaurierDorion', titre: 'LaurierDorion')
-  .row
     =react_component('app.Gouin', titre: 'Gouin')
+  .columns.small-2
+    %h4 A venir
 
 //Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin
