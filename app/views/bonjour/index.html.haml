@@ -9,7 +9,22 @@
 
 .row
   .row
-    %h5 Including react_component
+    %h5 Québec — Élections générales du 7 avril 2014
+    %p Résultats par sections de vote dans quelques circonscriptions de Montréal
+    %blockquote
+      Comprends des données ouvertes octroyées sous la licence d'utilisation 
+      des données ouvertes du Directeur général des élections du Québec 
+      disponible à l'adresse Web : 
+      =link_to "http://www.electionsquebec.qc.ca", "http://www.electionsquebec.qc.ca" 
+      L'octroi de la licence n'implique aucune approbation par le 
+      Directeur général des élections du Québec de l'utilisation des données 
+      ouvertes qui en est faite.
+      
+      %cite
+        Licence d'utilisation des données ouvertes du DGEQ
+    %h5 Code source
+    %p Le code source de ce projet est disponible sur le site de GitHub.
+    %p= link_to 'https://github.com/ycrepeau/test_leaflet_d3js', 'https://github.com/ycrepeau/test_leaflet_d3js'
   .row
     =react_component('app.Rosemont', titre: 'Rosemont')
   .row
