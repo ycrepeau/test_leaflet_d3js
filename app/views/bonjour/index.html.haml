@@ -8,7 +8,19 @@
 
 
 .row
-  .map-wrap
-    #map
+  .row
+    %h5 Including react_component
+  .row
+    =react_component('app.Rosemont', titre: 'Rosemont')
+  .row
+    =react_component('app.HoMa', titre: 'Hochelaga-Maisonneuve')
+  .row
+    =react_component('app.SainteMarieSaintJacques', titre: 'Sainte-Marie – Saint-Jacques')
+  .row
+    =react_component('app.Mercier', titre: 'Mercier')
+  .row
+    =react_component('app.LaurierDorion', titre: 'LaurierDorion')
+  .row
+    =react_component('app.Gouin', titre: 'Gouin')
 
-= react_component('app.HelloMessage', titre: 'Test React')
+//Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin

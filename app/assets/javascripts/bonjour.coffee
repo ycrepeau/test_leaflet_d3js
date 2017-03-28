@@ -77,7 +77,7 @@ $ ->
           .attr 'name', (d) ->
             d.properties.name
 
-        #Les circonscriptions voisines de Gouin
+        #Les circonscriptions de la région
         voisines = topojson.feature(dgeq, dgeq.objects.electionsQC3)
         circonscriptions = g.selectAll(".district")
           .data(voisines.features)
@@ -148,6 +148,7 @@ $ ->
               if (svn != null)
                 console.log "Match! #{svn[1]}"
                 sv = svn[1]
+                rs['B.V.'] += res[j+1]['B.V.']
                 for clef, i in clefs
                   rs[clef] += res[j+1][clef]
 

@@ -2,27 +2,6 @@
 @import 'foundation_and_overrides'
 
 
-.react-component
-
-  @extend .row
-  @extend .medium-up-2
-  @extend .small-collapse
-  @extend .medium-uncollapse
-
-  border: thin solid $black
-  margin: 5px
-  padding: 5px
-
-  & .card
-    @extend .columns
-
-    & .card-divider
-      margin: 0 -15px
-
-
-
-
-
 $colors: (#f32f2f, #ff7022, #fdff37, #4bd34b, #0ac5b6, #5460c1, #a937d4, #f30a93)
 
 h3
@@ -65,20 +44,28 @@ h3
       .fa
         color: $success-color
 
-#map
+#map,
+.aMap
   border: thin solid black
   margin-right: 2rem
   width: 100%
 
   @include breakpoint(small)
     height: 250px
+    width:  375px
   @include breakpoint(medium)
     height: 500px
+    width:  750px
   @include breakpoint(large)
     height: 750px
+    width:  960px
   @include breakpoint(xlarge)
     height: 960px
+    width: 1200px
 
+.nom
+  fill       : #ffffff
+  stroke     : #000000
 
 .map-wrap
   @include flex-grid-column(12)
@@ -148,7 +135,7 @@ $sec_trans: 0.5
   &.qs
     fill: rgba($qs, $trans)
 
-  &.d381
+  &.target
     fill: none
 
 
