@@ -1,5 +1,7 @@
 {Component} = require 'react'
-{p, h4, div, text, crel} = require 'teact'
+{p, h4, div, text, crel} = require '../teact'
+{dsvFormat} = require 'd3-dsv'
+
 
 class CardMessage extends Component
   render: =>
@@ -21,6 +23,8 @@ class MapBase extends Component
     initialZoom: 14
   }
   
+
+
   render: =>
     div '.map-wrap', =>
       h4 {}, "Elections Générales du 7 avril 2014"

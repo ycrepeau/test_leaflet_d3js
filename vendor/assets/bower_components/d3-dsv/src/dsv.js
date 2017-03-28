@@ -27,7 +27,7 @@ function inferColumns(rows) {
   return columns;
 }
 
-export default function(delimiter) {
+module.export = function(delimiter) {
   var reFormat = new RegExp("[\"" + delimiter + "\n\r]"),
       delimiterCode = delimiter.charCodeAt(0);
 

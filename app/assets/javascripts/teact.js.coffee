@@ -1,4 +1,5 @@
 React = require 'react'
+dsv = require 'd3-dsv'
 
 elements =
   # Valid HTML 5 elements requiring a closing crel.

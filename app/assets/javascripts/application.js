@@ -22,7 +22,7 @@
 //= require foundation-sites/dist/js/foundation
 //= require d3/d3
 //= require d3-queue/d3-queue
-//= require d3-dsv
+//  xxrequire d3-dsv/src/dsvxx
 //= require topojson/topojson
 
 //  xxrequire react
