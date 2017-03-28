@@ -85,5 +85,5 @@ gem "letter_opener", :group => :development
 
 gem 'react-rails'
 gem "browserify-rails"
-gem pg, :group => :production
+gem 'pg', :group => :production
 
