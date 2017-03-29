@@ -13,4 +13,4 @@ Rails.application.config.assets.enabled = true
 Rails.application.config.assets.paths << Rails.root.join("vendor", 'assets', 'bower_components', 'foundation-sites', 'scss')
 Rails.application.config.assets.paths << Rails.root.join("vendor", 'assets', 'bower_components', 'foundation-sites', 'js')
 Rails.application.config.assets.paths << Rails.root.join("vendor", 'assets', 'bower_components', 'font-awesome', 'fonts')
-Rails.application.config.assets.precompile << %w( .svg .eot .woff .ttf )
+#Rails.application.config.assets.precompile << %w( .svg .eot .woff .ttf )
