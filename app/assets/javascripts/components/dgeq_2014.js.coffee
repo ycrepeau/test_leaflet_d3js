@@ -1,6 +1,5 @@
 {Component} = require 'react'
 {p, h4, div, text, crel} = require '../teact'
-{dsvFormat} = require 'd3-dsv'
 
 
 class CardMessage extends Component
@@ -266,8 +265,6 @@ class MapBase extends Component
       .defer d3.json, '/mtl.json'
       .defer d3.json, '/resultats.json'
       .await drawMap
-
-
 
 #Gouin 381
 class Gouin extends MapBase
