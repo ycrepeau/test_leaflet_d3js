@@ -1,5 +1,5 @@
 {
-  "name": "dsl-generated dependencies",
+  "name": "dsl-generated-dependencies",
   "dependencies": {
     "jquery": "latest",
     "jquery-ujs": "latest",
@@ -11,10 +11,6 @@
     "leaflet-ajax": "latest",
     "d3": "latest",
     "d3-queue": "latest",
-    "d3-dsv": "latest",
     "topojson": "latest"
-  },
-  "resolutions": {
-    "leaflet": "1.0.3"
   }
 }

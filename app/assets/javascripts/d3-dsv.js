@@ -1,3 +1,10 @@
+// https://d3js.org/d3-dsv/ Version 1.0.5. Copyright 2017 Mike Bostock.
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.d3 = global.d3 || {})));
+}(this, (function (exports) { 'use strict';
+
 function objectConverter(columns) {
   return new Function("d", "return {" + columns.map(function(name, i) {
     return JSON.stringify(name) + ": d[" + i + "]";
@@ -27,7 +34,7 @@ function inferColumns(rows) {
   return columns;
 }
 
-module.export = function(delimiter) {
+var dsv = function(delimiter) {
   var reFormat = new RegExp("[\"" + delimiter + "\n\r]"),
       delimiterCode = delimiter.charCodeAt(0);
 
@@ -131,4 +138,32 @@ module.export = function(delimiter) {
     format: format,
     formatRows: formatRows
   };
-}
+};
+
+var csv = dsv(",");
+
+var csvParse = csv.parse;
+var csvParseRows = csv.parseRows;
+var csvFormat = csv.format;
+var csvFormatRows = csv.formatRows;
+
+var tsv = dsv("\t");
+
+var tsvParse = tsv.parse;
+var tsvParseRows = tsv.parseRows;
+var tsvFormat = tsv.format;
+var tsvFormatRows = tsv.formatRows;
+
+exports.dsvFormat = dsv;
+exports.csvParse = csvParse;
+exports.csvParseRows = csvParseRows;
+exports.csvFormat = csvFormat;
+exports.csvFormatRows = csvFormatRows;
+exports.tsvParse = tsvParse;
+exports.tsvParseRows = tsvParseRows;
+exports.tsvFormat = tsvFormat;
+exports.tsvFormatRows = tsvFormatRows;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
