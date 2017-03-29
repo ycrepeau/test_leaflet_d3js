@@ -34,7 +34,6 @@ var ReactDOM= window.ReactDOM = global.ReactDOM = require('react-dom');
 //require('jquery-ujs')
 
 
-
 jQuery(function(){
   jQuery(document).foundation();
 
