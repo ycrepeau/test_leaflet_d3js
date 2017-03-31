@@ -9,14 +9,3 @@ $fa-font-path: '/assets/font-awesome/fonts';
 @import 'leaflet/dist/leaflet';
 @import 'leaflet-providers/css/gh-fork-ribbon';
 @import 'leaflet-providers/css/gh-fork-ribbon.ie';
-
-@font-face{
-  font-family: 'Font-Awesome';
-  src: asset-url('font-awesome.eot');
-  src: asset-url('font-awesome.eot?#iefix') format('embedded-opentype'),  
-  asset-url('font-awesome.svg') format('svg'),  
-  asset-url('font-awesome.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
