@@ -1,0 +1,2 @@
+module SainteMarieSaintJacquesHelper
+end

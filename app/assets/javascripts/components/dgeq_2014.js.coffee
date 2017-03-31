@@ -31,7 +31,7 @@ class MapBase extends Component
       div { id: "map_#{@props.codeCirconscription}", className:'aMap'}, ''
 
   componentDidMount: =>
-    console.log "Map id: map_#{@props.codeCirconscription}"
+    #console.log "Map id: map_#{@props.codeCirconscription}"
 
     svg                   = null
     path                  = null
@@ -127,7 +127,7 @@ class MapBase extends Component
       if error
         console.log("got #{error}")
       else
-        console.log('got data')
+        #console.log('got data')
 
         # Les limites territoriales des provinces et des états
         features = g.selectAll('.state')
@@ -203,53 +203,18 @@ class MapBase extends Component
             .attr 'id', (d) -> "s#{codeCirconscription}-#{d.properties.NO_SV}"
 
         # Résultats par section de vote au sein de la circonscription
-        dsv = d3.dsvFormat(";")
-        d3.text "/2014-04-07/#{codeCirconscription}.csv", (error, csv2014) ->
-          if error
-            console.log "Error reading /2014-04-07/#{codeCirconscription}.csv"
-          else
-            console.log "Donnees resultats pour /2014-04-07/#{codeCirconscription}.csv reçues"
-            res = dsv.parse csv2014
-            clefs = lcandidats.reduce ((memo, c) ->
-                          memo.push c.clef
-                          memo
-                        ), []
-
-            partis = lcandidats.reduce ((memo, c) ->
-                          memo.push c.abreviation
-                          memo
-                        ), []
-
-            console.log "Columns: #{res.columns[7]}"
-            for rs, j in res
-              vote_max = 0
-              i_max = -1
-              sv = rs['S.V.']
-              
-              svn = /(\d+)A/.exec(sv)
-              if (svn != null)
-                #console.log "Match! #{svn[1]}"
-                sv = svn[1]
-                rs['B.V.'] += res[j+1]['B.V.']
-                for clef, i in clefs
-                  rs[clef] += res[j+1][clef]
-
-              for clef, i in clefs
-                #console.log ">> #{rs['S.V.']} #{partis[i]} #{clef} #{rs[clef]}"ax
-                if rs[clef]? && +rs[clef] > vote_max
-                  #console.log "#{partis[i]} (#{rs[clef]}) > #{partis[i_max]} (#{vote_max})"
-                  vote_max = +rs[clef]
-                  i_max = +i
-              
-              #console.log "#{sv} #{partis[i_max]}  #{vote_max}"
-              repere = "path\#s#{codeCirconscription}-#{sv}"
-              $(repere).addClass "#{partis[i_max]}"
-              if (vote_max/rs['B.V.'] < 0.50)
-                $(repere).addClass "faible"
-              else if vote_max/rs['B.V.'] < 0.65
-                $(repere).addClass "moyen"
-              else
-                $(repere).addClass "fort"
+        results_by_section_file = "/2014-04-07/#{codeCirconscription}.csv"
+        if sessionStorage.getItem(results_by_section_file)?
+          console.log("Using sessionStorage with key: #{results_by_section_file}")
+          colorSections(sessionStorage.getItem(results_by_section_file))
+        else
+          d3.text results_by_section_file, (error, csv2014) ->
+            if error
+              console.log "Error reading /2014-04-07/#{codeCirconscription}.csv"
+            else
+              console.log "Donnees resultats pour /2014-04-07/#{codeCirconscription}.csv reçues"
+              sessionStorage.setItem(results_by_section_file, csv2014)
+              colorSections(csv2014)
 
 
 
@@ -258,13 +223,100 @@ class MapBase extends Component
         mymap.on('zoomend', reset)
         reset()
 
+    colorSections = (csv2014) =>
+      dsv = d3.dsvFormat(";")
 
-    # Request data files
-    d3.queue()
-      .defer d3.json, '/provinces.json'
-      .defer d3.json, '/mtl.json'
-      .defer d3.json, '/resultats.json'
-      .await drawMap
+      res = dsv.parse csv2014
+      clefs = lcandidats.reduce ((memo, c) ->
+                    memo.push c.clef
+                    memo
+                  ), []
+
+      partis = lcandidats.reduce ((memo, c) ->
+                    memo.push c.abreviation
+                    memo
+                  ), []
+
+      console.log "Columns: #{res.columns[7]}"
+      for rs, j in res
+        vote_max = 0
+        i_max = -1
+        sv = rs['S.V.']
+        
+        svn = /(\d+)A/.exec(sv)
+        if (svn != null)
+          #console.log "Match! #{svn[1]}"
+          sv = svn[1]
+          rs['B.V.'] += res[j+1]['B.V.']
+          for clef, i in clefs
+            rs[clef] += res[j+1][clef]
+
+        for clef, i in clefs
+          #console.log ">> #{rs['S.V.']} #{partis[i]} #{clef} #{rs[clef]}"ax
+          if rs[clef]? && +rs[clef] > vote_max
+            #console.log "#{partis[i]} (#{rs[clef]}) > #{partis[i_max]} (#{vote_max})"
+            vote_max = +rs[clef]
+            i_max = +i
+        
+        #console.log "#{sv} #{partis[i_max]}  #{vote_max}"
+        repere = "path\#s#{codeCirconscription}-#{sv}"
+        $(repere).addClass "#{partis[i_max]}"
+        if (vote_max/rs['B.V.'] < 0.50)
+          $(repere).addClass "faible"
+        else if vote_max/rs['B.V.'] < 0.65
+          $(repere).addClass "moyen"
+        else
+          $(repere).addClass "fort"
+
+
+    dispatchData = (e) =>
+      console.log("DispatchData  called for #{this.props.codeCirconscription}")
+      topo = JSON.parse(sessionStorage.provinces)
+      data = topojson.feature(topo, topo.objects.provinces)
+      dgeq = JSON.parse(sessionStorage.dgeq)
+      resultats = JSON.parse(sessionStorage.resultats)
+      drawMap(null,data,dgeq,resultats)
+
+
+    captureData = (error, data, dgeq, resultats) =>
+      if error
+        console.log "loading -> null  for #{@props.codeCirconscription}"
+        sessionStorage.data_loaded = null
+      else
+        sessionStorage.data_loaded = "ok"
+        console.log "loading -> ok for #{@props.codeCirconscription}"
+        sessionStorage.provinces = JSON.stringify(data)
+        sessionStorage.dgeq = JSON.stringify(dgeq)
+        sessionStorage.resultats = JSON.stringify(resultats)
+
+        window.dispatchEvent(new Event('d3_data_loaded'))
+
+
+    #Entry point
+    if !sessionStorage.data_loaded?
+      console.log "null -> loading for #{@props.codeCirconscription}"
+      sessionStorage.data_loaded = "loading"
+      # Request data files
+      d3.queue()
+        .defer d3.json, '/provinces.topojson'
+        .defer d3.json, '/mtl.json'
+        .defer d3.json, '/resultats.json'
+        .await captureData
+      window.addEventListener('d3_data_loaded', dispatchData, false)
+    else if sessionStorage.data_loaded == 'loading'
+      console.log "* data loading for #{@props.codeCirconscription}"
+      window.addEventListener('d3_data_loaded', dispatchData, false)
+
+    else if sessionStorage.data_loaded == 'ok'
+      console.log "** data ok for #{@props.codeCirconscription}"
+      dispatchData()
+
+    else
+      console.log "***sessionStorage.data_loaded: #{sessionStorage.data_loaded}"
+      
+    #
+    # sessionStorage.provinces = JSON.stringify(data)
+    # data = JSON.parse(sessionStorage.provinces)
 
 #Gouin 381
 class Gouin extends MapBase

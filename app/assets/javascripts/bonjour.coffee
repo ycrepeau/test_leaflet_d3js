@@ -1,6 +1,6 @@
 $ ->
   if $('#map').length == 0
-    console.log 'No #map. Stopping script'
+    #console.log 'No #map. Stopping script'
     return
 
   svg               = null

@@ -1,0 +1,2 @@
+module GouinHelper
+end

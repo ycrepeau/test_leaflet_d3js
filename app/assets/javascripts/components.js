@@ -1,6 +1,6 @@
 require('./teact');
 // Setup app into global name space for server rendering
-console.log("components.js loaded");
+//console.log("components.js loaded");
 var app = window.app = global.app = {};
 //var app = window.app  = {};
 
