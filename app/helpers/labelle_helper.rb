@@ -1,0 +1,2 @@
+module LabelleHelper
+end

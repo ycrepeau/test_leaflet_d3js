@@ -70,7 +70,6 @@ class MapBase extends Component
       point = mymap.latLngToLayerPoint(new L.LatLng(y, x))
       this.stream.point(point.x, point.y)
 
-
     transform = d3.geoTransform({point: projectPoint})
     path = d3.geoPath().projection(transform)
 
@@ -152,6 +151,10 @@ class MapBase extends Component
             .attr "id", (d) -> "#{codeCirconscription}-#{d.properties.CO_CEP}"
             .attr "class", (d) -> "district d" + d.properties.CO_CEP
             .attr "name", (d) -> d.properties.NM_CEP + " QC"
+            .attr "data-centroid", (d) ->
+              centroid = mymap.layerPointToLatLng(path.centroid(d))
+              "#{centroid.lat}, #{centroid.lng}"
+
 
         #Les résultats dans les différentes circonscriptions
         res2014 = resultats.circonscriptions
@@ -474,9 +477,9 @@ class SainteMarieSaintJacques extends MapBase
     codeCirconscription: 389,
     initialPoint: [45.512, -73.558],
     initialZoom: 13,    
-    minZoom: 13,
+    minZoom: 6,
     maxZoom: 16,
-    maxBounds: [[45.4,-74], [45.7, -73.4]],
+    maxBounds: [[45.4,-74], [48.7, -70.4]],
     candidats: [
       {
         clef: "Bissonnette Marc B.P."
@@ -630,6 +633,142 @@ class Rosemont extends MapBase
     ]
   }  
 
+# Jean-Lesage 623
+class JeanLesage extends MapBase
+  @defaultProps = {
+    codeCirconscription: 623
+    initialPoint: [46.847, -71.22],
+    minZoom: 10,
+    maxZoom: 16,
+    maxBounds: [[46,-72], [48, -70.5]],
+    initialZoom: 13,
+    candidats: [
+      {
+        clef: "Bouchard Sébastien Q.S."
+        abreviation: 'qs'
+      },
+      {
+        clef: "Breton José Ind"
+        abreviation: 'ind'
+      },
+      {
+        clef: "Châteauvert Pierre P.Q."
+        abreviation: 'pq'
+      },
+      {
+        clef: "Drolet André P.L.Q./Q.L.P."
+        abreviation: 'plq'
+      },
+      {
+        clef: "Dumais Sébastien P.N."
+        abreviation: 'pn'
+      },
+      {
+        clef: "Foster Émilie C.A.Q.-É.F.L."
+        abreviation: 'caq'
+      },
+      {
+        clef: "Garcia Andrés É.A.P. - P.C.Q."
+        abreviation: 'pcq'
+      },
+      {
+        clef: "Moreau Claude P.M.L.Q."
+        abreviation: 'pmlq'
+      },
+      {
+        clef: "Zanetti Sol O.N. - P.I.Q."
+        abreviation: 'on'
+      }
+    ]
+  }
+
+# Taschereau 633
+class Taschereau extends MapBase
+  @defaultProps = {
+    codeCirconscription: 633
+    initialPoint: [46.81, -71.22],
+    minZoom: 10,
+    maxZoom: 16,
+    maxBounds: [[46,-72], [48, -70.5]],
+    initialZoom: 13,
+    candidats: [
+      {
+        clef: "Boivin Guy É.A."
+        abreviation: 'ea'
+      },
+      {
+        clef: "Brabant Steve C.A.Q.-É.F.L."
+        abreviation: 'caq'
+      },
+      {
+        clef: "Deblois Anne É.A.P. - P.C.Q."
+        abreviation: 'pcq'
+      },
+      {
+        clef: "Dorion Catherine O.N. - P.I.Q."
+        abreviation: 'on'
+      },
+      {
+        clef: "Drolet Sylvain P.S.P."
+        abreviation: 'psp'
+      },
+      {
+        clef: "Duchesne Marie-Ève Q.S."
+        abreviation: 'qs'
+      },
+      {
+        clef: "Maltais Agnès P.Q."
+        abreviation: 'pq'
+      },
+      {
+        clef: "Savard Jean-Luc P.N."
+        abreviation: 'qs'
+      },
+      {
+        clef: "Tanlet Florent P.L.Q./Q.L.P."
+        abreviation: 'plq'
+      }
+    ]
+  }
+
+
+# Labelle 545
+###
+;;;;;R;
+###
+class Labelle extends MapBase
+  @defaultProps = {
+    codeCirconscription: 545
+    initialPoint: [46.83246, -75.13701],
+    minZoom: 9,
+    maxZoom: 16,
+    maxBounds: [[46,-76], [48, -73]],
+    initialZoom: 11,
+    candidats: [
+      {
+        clef: "Dagenais Gabriel Q.S."
+        abreviation: 'qs'
+      },
+      {
+        clef: "Lacroix Christian P.L.Q./Q.L.P."
+        abreviation: 'plq'
+      },
+      {
+        clef: "Pagé Sylvain P.Q."
+        abreviation: 'pq'
+      },
+      {
+        clef: "Remy-Quevedo Cedrick C.A.Q.-É.F.L."
+        abreviation: 'caq'
+      },
+      {
+        clef: "Richard-Léonard Philippe O.N. - P.I.Q."
+        abreviation: 'on'
+      }
+    ]
+  }
+
+
 
 # Entry point
 class HelloMessage extends Component
@@ -641,5 +780,5 @@ class HelloMessage extends Component
 
 
 
-module.exports = {HelloMessage, Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin}
+module.exports = {HelloMessage, Labelle, Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin, JeanLesage, Taschereau}
 

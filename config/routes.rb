@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'labelle/index'
+
+  get 'vanier_les_rivieres/index'
+
+  get 'louis_hebert/index'
+
+  get 'la_pelterie/index'
+
+  get 'jean_talon/index'
+
+  get 'taschereau/index'
+
+  get 'jean_lesage/index'
+
   get 'laurier_dorion/index'
 
   get 'gouin/index'

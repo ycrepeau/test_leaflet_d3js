@@ -1,0 +1,2 @@
+module LaPelterieHelper
+end

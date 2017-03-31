@@ -6,9 +6,15 @@
       Cartes des résultats
       %i.fa.fa-map-o
 
-
 .row
-  .columns.small-12
+  .columns.small-12.medium-4
+    %h5 Laurentides
+    %ul
+      %li=link_to "Labelle", labelle_index_path
+
+  .columns.small-12.medium-8
+.row
+  .columns.small-12.medium-4
     %h5 Montréal
     %ul
       %li=link_to "Rosemont", rosemont_index_path
@@ -28,13 +34,26 @@
       %li Outremont
       %li Saint-Henri — Sainte-Anne
 
+  .columns.small-12.medium-8
+    xxx
+
+.row
+  .columns.small-12.medium-4
+
+    %h5 Québec
+    %ul
+      %li=link_to  "Jean-Lessage", jean_lesage_index_path
+      %li=link_to  "Taschereau", taschereau_index_path
+
     %h5 Québec (en projet)
     %ul
-      %li Jean-Lessage
-      %li Taschereau
-      %li Jean-Talon
-      %li La Pelterie
-      %li Louis-Hébert
+      %li=link_to  "Jean-Talon", jean_talon_index_path
+      %li=link_to  "La Pelterie", la_pelterie_index_path
+      %li=link_to  "Louis-Hébert", louis_hebert_index_path
+      %li=link_to  "Vanier-Les-Rivières", vanier_les_rivieres_index_path
+
+  .columns.small-12.medium-8
+    xxx
 
 
 
