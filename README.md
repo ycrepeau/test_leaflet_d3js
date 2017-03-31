@@ -29,6 +29,18 @@ process then the Rails built process is launched.
 * The project uses Zurb Foundation 6 framework as CSS Framework
 * It uses semantic css (with haml it makes clean code)
 
+##Fichers du DGEQ (Directeur Général des Élections du Québec)
+
+Les fichiers de données sont dans le dossier /public du projet.
+
+provinces.geojson permettent d'afficher les frontières entre les provinces canadiennes et/ou les états des USA. (Source: Natural Earth). J'ai utilisé les fichier de type ESRI-Shapefiles que j'ai converti en geojson puis en topojson.
+
+mtl.json est un fichier topjson contenant plusieurs topologies dont les limites entre les circonscriptions et les limites des sections de vote dans plusieurs circonscriptons. J'ai utilisé des fichiers ESRI-Shapefiles fournis par le DGEQ pour extraire les données pertinentes et les organiser afin de minimiser le volume du fichier.
+
+resultats.json est un fichier geojson donnant les résultats pour les les 125 circonscriptions et je crois que je l'ai utilisé tel que fourni par le DGEQ.
+
+Le sous-répertoire '2014-04-07' contient une série de fichiers donnant les résultats par section de vote circonscription par circonsriptions.
+
 # Copyright notice
 
 (C) Copyright 2017 by Yanik Crépeau, All right reserved.
