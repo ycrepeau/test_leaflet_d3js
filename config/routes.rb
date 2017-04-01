@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rimouski/index'
+
   get 'labelle/index'
 
   get 'vanier_les_rivieres/index'

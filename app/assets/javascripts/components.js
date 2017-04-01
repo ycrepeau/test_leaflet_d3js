@@ -19,6 +19,7 @@ app.LaurierDorion           = dgeq_2014.LaurierDorion;
 app.Gouin                   = dgeq_2014.Gouin;
 app.JeanLesage              = dgeq_2014.JeanLesage;
 app.Taschereau              = dgeq_2014.Taschereau;
+app.Rimouski                = dgeq_2014.Rimouski;
 
 
 

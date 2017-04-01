@@ -733,9 +733,6 @@ class Taschereau extends MapBase
 
 
 # Labelle 545
-###
-;;;;;R;
-###
 class Labelle extends MapBase
   @defaultProps = {
     codeCirconscription: 545
@@ -768,8 +765,46 @@ class Labelle extends MapBase
     ]
   }
 
-
-
+# Rimouski 703
+class Rimouski extends MapBase
+  @defaultProps = {
+    codeCirconscription: 703
+    initialPoint: [48.263064, -68.51885],
+    minZoom: 7,
+    maxZoom: 16,
+    maxBounds: [[47,-70], [50, -66]],
+    initialZoom: 9,
+    candidats: [
+      {
+        clef: "Beaudoin Pierre O.N. - P.I.Q."
+        abreviation: 'on'
+      },
+      {
+        clef: "Besner Marie-Neige Q.S."
+        abreviation: 'qs'
+      },
+      {
+        clef: "Cyr Tom-Henri B.P."
+        abreviation: 'bp'
+      },
+      {
+        clef: "Fleurent Steven C.A.Q.-É.F.L."
+        abreviation: 'caq'
+      },
+      {
+        clef: "Gagnon Pier-Luc P.N."
+        abreviation: 'pn'
+      },
+      {
+        clef: "Huot Pierre P.L.Q./Q.L.P."
+        abreviation: 'plq'
+      },
+      {
+        clef: "Lebel Harold P.Q."
+        abreviation: 'pq'
+      }
+    ]
+  }
 # Entry point
 class HelloMessage extends Component
 
@@ -780,5 +815,5 @@ class HelloMessage extends Component
 
 
 
-module.exports = {HelloMessage, Labelle, Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin, JeanLesage, Taschereau}
+module.exports = {HelloMessage, Labelle, Rosemont, HoMa, SainteMarieSaintJacques,Mercier,LaurierDorion,Gouin, JeanLesage, Taschereau, Rimouski}
 
