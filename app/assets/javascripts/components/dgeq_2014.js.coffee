@@ -805,6 +805,7 @@ class Rimouski extends MapBase
       }
     ]
   }
+
 # Entry point
 class HelloMessage extends Component
 
