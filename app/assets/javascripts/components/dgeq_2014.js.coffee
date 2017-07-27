@@ -14,6 +14,8 @@ class CardMessage extends Component
           p {}, this.props.message
 
 #Base class
+# This is used as base class for all riding (circonscriptions)
+# sub classes.
 class MapBase extends Component
   @defaultProps = {
     minZoom: 13,
@@ -31,6 +33,8 @@ class MapBase extends Component
       p {}, "Résultats par sections de vote dans #{@props.titre}"
       div { id: "map_#{@props.codeCirconscription}", className:'aMap'}, ''
 
+  
+  #This sets up the map when the component is mounted.
   componentDidMount: =>
     #console.log "Map id: map_#{@props.codeCirconscription}"
 
