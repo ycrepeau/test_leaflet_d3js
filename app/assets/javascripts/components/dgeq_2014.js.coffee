@@ -1,7 +1,8 @@
 {Component} = require 'react'
 {p, h4, div, text, crel} = require '../teact'
 
-
+# CardMessage is a REACT preset component used in conjonction
+# with the Zurb Foundation .card component.
 class CardMessage extends Component
   render: =>
     div '.columns.small-4.flex-container', =>
