@@ -1,7 +1,8 @@
 {Component} = require 'react'
 {p, h4, div, text, crel} = require '../teact'
 
-
+# CardMessage is a REACT preset component used in conjonction
+# with the Zurb Foundation .card component.
 class CardMessage extends Component
   render: =>
     div '.columns.small-4.flex-container', =>
@@ -13,6 +14,8 @@ class CardMessage extends Component
           p {}, this.props.message
 
 #Base class
+# This is used as base class for all riding (circonscriptions)
+# sub classes.
 class MapBase extends Component
   @defaultProps = {
     minZoom: 13,
@@ -30,6 +33,8 @@ class MapBase extends Component
       p {}, "Résultats par sections de vote dans #{@props.titre}"
       div { id: "map_#{@props.codeCirconscription}", className:'aMap'}, ''
 
+  
+  #This sets up the map when the component is mounted.
   componentDidMount: =>
     #console.log "Map id: map_#{@props.codeCirconscription}"
 
