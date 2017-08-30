@@ -36,7 +36,7 @@ class Teact
     @stack = null
     console.log "constructor #{JSON.stringify React}"
 
-  resetStack: (stack=null) ->
+  resetStack: (stack = null) ->
     previous = @stack
     @stack = stack
     return previous
@@ -54,7 +54,7 @@ class Teact
       else
         [klass, id] = token.split '#'
         classes.push token unless klass is ''
-    return {id, classes}
+    return { id, classes }
 
   normalizeArgs: (args) ->
     attrs = {}
@@ -83,7 +83,7 @@ class Teact
           contents = arg
 
     if parsedSelector?
-      {id, classes} = parsedSelector
+      { id, classes } = parsedSelector
       attrs.id = id if id?
       if classes?.length
         if attrs.className
@@ -97,12 +97,12 @@ class Teact
       for k, v of dataAttrs
         attrs["data-#{k}"] = v
 
-    return {attrs, contents, selector}
+    return { attrs, contents, selector }
 
   crel: (tagName, args...) ->
     unless tagName?
       throw new Error "Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: #{tagName}"
-    {attrs, contents} = @normalizeArgs args
+    { attrs, contents } = @normalizeArgs args
 
     switch typeof contents
       when 'function'
@@ -129,7 +129,7 @@ class Teact
       return children
 
   selfClosingTag: (tagName, args...) ->
-    {attrs, contents} = @normalizeArgs args
+    { attrs, contents } = @normalizeArgs args
     if contents
       throw new Error "Teact: <#{tagName}/> must not have content.  Attempted to nest #{contents}"
     @crel tagName, attrs
