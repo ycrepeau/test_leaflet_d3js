@@ -13,7 +13,6 @@
 //= require jquery/dist/jquery
 //= require jquery-ujs/src/rails
 //= require turbolinks
-//= require_tree .
 //= require leaflet/dist/leaflet
 //= require leaflet-providers/leaflet-providers
 //= require jquery-tokeninput/src/jquery.tokeninput
@@ -23,7 +22,11 @@
 //= require d3/d3
 //= require d3-queue/d3-queue
 //= require topojson/topojson
+//= require react
 //= require react_ujs
+//= require components
+//= require_tree .
+
 
 var React = window.React = global.React = require('react');
 var ReactDOM= window.ReactDOM = global.ReactDOM = require('react-dom');
