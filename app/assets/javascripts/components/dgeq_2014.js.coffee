@@ -247,6 +247,18 @@ class MapBase extends Component
                   ), []
 
       console.log "Columns: #{res.columns[7]}"
+      console.log partis
+      ## Fusion Option Nationale et Québec solidaire.
+      index_on = partis.indexOf('on')
+      index_qs = partis.indexOf('qs')
+      if (index_on >= 0  && index_qs >= 0)
+        clef_on = clefs[index_on]
+        clef_qs = clefs[index_qs]
+        console.log("Fusion #{index_on} #{clef_on} avec #{index_qs} #{clef_qs}")
+      else
+        console.log("Pas de fusion: on: #{index_on} qs: #{index_qs}")
+       
+
       for rs, j in res
         vote_max = 0
         i_max = -1
@@ -260,6 +272,12 @@ class MapBase extends Component
           for clef, i in clefs
             rs[clef] += res[j+1][clef]
 
+        #Fusion QS et ON
+        if (index_qs >= 0 && index_on >= 0)
+          #console.log "#{sv}: qs: #{rs[clef_qs]} + on: #{rs[clef_on]} donne: #{+rs[clef_qs] + +rs[clef_on]}"
+          rs[clef_qs] = +rs[clef_qs] + +rs[clef_on]
+          #console.log "resultat: qs+on: #{rs[clef_qs]}"
+        
         for clef, i in clefs
           #console.log ">> #{rs['S.V.']} #{partis[i]} #{clef} #{rs[clef]}"ax
           if rs[clef]? && +rs[clef] > vote_max
@@ -524,7 +542,7 @@ class SainteMarieSaintJacques extends MapBase
         clef: "Payne Nic O.N. - P.I.Q."
         nom: "Nic Payne"
         parti: "Option Nationale, Parti Indépendantiste du Québec"
-        abreviation: 'onPiq'
+        abreviation: 'on'
         
       },
       {
